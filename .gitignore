@@ -1,0 +1,7 @@
+# Project exclude paths
+/.gradle/
+/build-conventions/.gradle/
+/build-settings/.gradle/
+/build-settings/dependencies/build/
+/sample/.gradle/
+/sources/.gradle/

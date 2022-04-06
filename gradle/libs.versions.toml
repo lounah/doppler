@@ -1,0 +1,6 @@
+[versions]
+kotlin = "1.6.0"
+
+[libraries]
+kotlinGradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+detekt = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.18.1"
