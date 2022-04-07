@@ -36,7 +36,8 @@ public interface AndroidResourcesExtractor {
                     AndroidResource(
                         name = resource.name,
                         project = project.name,
-                        path = resource.path
+                        path = resource.path,
+                        type = resource.parentFile.name
                     )
                 }
         }
@@ -64,7 +65,8 @@ public interface AndroidResourcesExtractor {
                     AndroidResource(
                         name = node.attributes.getNamedItem("name").nodeValue,
                         project = project.name,
-                        path = resource.path
+                        path = resource.path,
+                        type = node.nodeName
                     )
                 }
                 .toList()

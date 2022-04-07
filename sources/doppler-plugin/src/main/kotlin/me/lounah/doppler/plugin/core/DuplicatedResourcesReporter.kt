@@ -8,11 +8,13 @@ public interface DuplicatedResourcesReporter {
 
         override fun report(resources: DuplicatedResources) {
             val resourcesReport = resources.entries.joinToString("\n") { (key, resources) ->
-                "`$key` found in projects [${resources
+                "`$key` of type `${resources.first().type}` found in projects [${resources
                     .joinToString(transform = AndroidResource::project)}]"
             }
-            print(("[DuplicatedResourcesFinder] found `${resources.size}` resources.\n" +
-                    resourcesReport).trim())
+            print(
+                ("[DuplicatedResourcesFinder] found ${resources.size} resources.\n" +
+                        resourcesReport).trim()
+            )
         }
     }
 
