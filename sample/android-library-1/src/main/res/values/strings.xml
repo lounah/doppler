@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Android Doppler Plugin Sample Application</string>
+    <string name="some_string">Some string from android-library-1</string>
+</resources>

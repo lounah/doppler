@@ -11,6 +11,7 @@ plugins {
     id("convention-dependencies")
 }
 
+include("android")
 include("kotlin")
 include("testing")
 include("util")
