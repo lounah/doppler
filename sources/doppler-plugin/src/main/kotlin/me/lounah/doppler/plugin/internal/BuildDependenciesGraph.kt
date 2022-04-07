@@ -4,6 +4,12 @@ import org.gradle.api.Project
 import org.gradle.api.artifacts.Configuration
 import org.gradle.api.artifacts.Dependency
 
+/**
+ * Recursively extract all dependencies from <code>target</code> project
+ * and from it's dependent projects.
+ * @return a set of dependencies of <code>target</code> project, excluding
+ * testing dependencies.
+ */
 internal class BuildDependenciesGraph : (Project) -> Set<Project> {
 
     private val visited = mutableMapOf<String, Set<Project>>()
