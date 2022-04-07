@@ -1,7 +1,9 @@
 package me.lounah.doppler.plugin
 
+import groovy.lang.Closure
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.create
+import org.gradle.util.internal.ConfigureUtil
 import java.io.File
 
 public open class DuplicatedResourcesFinderExtension(
@@ -13,8 +15,16 @@ public open class DuplicatedResourcesFinderExtension(
         exclude = exclude.apply(block)
     }
 
+    public fun exclude(closure: Closure<*>) {
+        ConfigureUtil.configure(closure, exclude)
+    }
+
     public fun report(block: ReportConfiguration.() -> Unit) {
         report = report.apply(block)
+    }
+
+    public fun report(closure: Closure<*>) {
+        ConfigureUtil.configure(closure, report)
     }
 
     internal companion object {
