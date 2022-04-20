@@ -16,7 +16,7 @@ Gradle plugin, which detects & reports about duplicated resources in <code>Andro
 
 ```kotlin
 plugins {
-    id("me.lounah.duplicated-resources-finder").version("[version]")
+    id("me.lounah.doppler").version("[version]")
 }
 
 repositories {
@@ -27,9 +27,15 @@ doppler {
     exclude {
         resources("shared_excluded_resource.xml")
         sourceSets("androidTest")
+        projects("android-library-4")
     }
     report {
-        systemOut()
+        html()
     }
 }
+```
+And then
+
+```shell
+./gradlew :android-application:doppler
 ```

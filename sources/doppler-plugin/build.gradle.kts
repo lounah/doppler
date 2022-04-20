@@ -12,7 +12,7 @@ dependencies {
 gradlePlugin {
     plugins {
         create("Doppler") {
-            id = "me.lounah.duplicated-resources-finder"
+            id = "me.lounah.doppler"
             implementationClass = "me.lounah.doppler.plugin.DuplicatedResourcesFinderPlugin"
             displayName = "Android Duplicated Resources Finder Plugin"
         }

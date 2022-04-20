@@ -29,11 +29,11 @@ public class DuplicatedResourcesFinderPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
         require(target.isAndroidApplication()) {
-            "`me.lounah.duplicated-resources-finder` must be applied only to an Android application."
+            "`me.lounah.doppler` must be applied only to an Android application."
         }
 
         target.tasks.register(
-            "findAndroidResourceDuplicates",
+            "doppler",
             DuplicatedResourcesFinderTask::class.java,
             DopplerComponent(target)
         ).configure {
