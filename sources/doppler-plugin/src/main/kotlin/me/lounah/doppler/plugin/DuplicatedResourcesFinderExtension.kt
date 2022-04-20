@@ -119,21 +119,17 @@ public class ReportConfiguration(
 ) {
 
     /**
-     * Prepare <code>html</code> report and put it in <code>destination</code> folder.
-     * @param destination directory, in which plugin will produce the report.
-     * <code>project.buildDirectory/reports/doppler</code> by default.
+     * Prepare <code>html</code> report and put it in <code>build/reports/doppler</code> folder.
      */
-    public fun html(destination: File) {
-        reporter = Reporter.Html(destination)
+    public fun html() {
+        reporter = Reporter.Html
     }
 
     /**
-     * Prepare <code>txt</code> report and put it in <code>destination</code> folder.
-     * @param destination directory, in which plugin will produce the report.
-     * <code>project.buildDirectory/reports/doppler</code> by default.
+     * Prepare <code>txt</code> report and put it in <code>build/reports/doppler</code> folder.
      */
-    public fun txt(destination: File) {
-        reporter = Reporter.Txt(destination)
+    public fun txt() {
+        reporter = Reporter.Txt
     }
 
     public fun systemOut() {
@@ -147,11 +143,11 @@ public class ReportConfiguration(
 
 public sealed class Reporter {
 
-    public class Html(public val dest: File): Reporter()
+    public object Html : Reporter()
 
-    public class Txt(public val dest: File): Reporter()
+    public object Txt : Reporter()
 
-    public object SystemOut: Reporter()
+    public object SystemOut : Reporter()
 
     public object None : Reporter()
 }

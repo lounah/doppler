@@ -57,8 +57,7 @@ public interface AndroidResourcesExtractor {
 
         private fun parseResourceValue(project: Project, resource: File): List<AndroidResource> {
             val values = documentBuilder.parse(resource).documentElement.childNodes
-            return (0 until values.length)
-                .asSequence()
+            return (0 until values.length).asSequence()
                 .map(values::item)
                 .filter(Node::hasAttributes)
                 .map { node ->

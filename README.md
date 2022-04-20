@@ -3,7 +3,7 @@
 ---
 Gradle plugin, which detects & reports about duplicated resources in <code>Android</code> projects.
 
-![doppler in action](doc/report.png "doppler in action")
+![doppler in action](doc/report-html.png "doppler in action")
 
 ### Features
 - Easy configuration

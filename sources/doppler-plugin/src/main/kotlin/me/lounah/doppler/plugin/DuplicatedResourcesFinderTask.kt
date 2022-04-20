@@ -15,7 +15,10 @@ public open class DuplicatedResourcesFinderTask @Inject constructor(
 
     @TaskAction
     public fun run() {
-        component.duplicatedResourcesFinder.find(project)
-            .also(component.duplicatedResourcesReporter::report)
+        with(component) {
+            val report = duplicatedResourcesFinder.find(project)
+            val output = project.layout.buildDirectory.dir("reports/doppler").get()
+            duplicatedResourcesReporter.write(output.asFile, report)
+        }
     }
 }

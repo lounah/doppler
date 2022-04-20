@@ -3,6 +3,12 @@ plugins {
     id("convention.kotlin-jvm")
 }
 
+dependencies {
+    implementation(libs.kotlinHtml)  {
+        exclude(group = "org.jetbrains.kotlin")
+    }
+}
+
 gradlePlugin {
     plugins {
         create("Doppler") {

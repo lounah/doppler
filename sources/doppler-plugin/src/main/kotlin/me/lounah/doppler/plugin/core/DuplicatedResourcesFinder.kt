@@ -1,5 +1,6 @@
 package me.lounah.doppler.plugin.core
 
+import me.lounah.doppler.plugin.core.reporter.DuplicatedResources
 import me.lounah.doppler.plugin.internal.BuildDependenciesGraph
 import org.gradle.api.Project
 

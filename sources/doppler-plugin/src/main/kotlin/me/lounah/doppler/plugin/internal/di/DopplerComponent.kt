@@ -3,9 +3,7 @@ package me.lounah.doppler.plugin.internal.di
 import me.lounah.doppler.plugin.core.DuplicatedResourcesFinder
 import me.lounah.doppler.plugin.DuplicatedResourcesFinderExtension
 import me.lounah.doppler.plugin.Reporter
-import me.lounah.doppler.plugin.core.DuplicatedResourcesReporter
-import me.lounah.doppler.plugin.internal.reporter.html.DuplicatedResourcesHtmlReporter
-import me.lounah.doppler.plugin.internal.reporter.txt.DuplicatedResourcesTxtReporter
+import me.lounah.doppler.plugin.core.reporter.DuplicatedResourcesReporter
 import org.gradle.api.Project
 
 public abstract class DopplerComponent {
@@ -27,15 +25,11 @@ internal fun DopplerComponent(project: Project): DopplerComponent {
             )
 
         override val duplicatedResourcesReporter: DuplicatedResourcesReporter
-            get() = when(extension.report.reporter) {
-                is Reporter.Html -> {
-                    DuplicatedResourcesHtmlReporter((extension.report.reporter as Reporter.Html).dest)
-                }
-                is Reporter.Txt -> {
-                    DuplicatedResourcesTxtReporter((extension.report.reporter as Reporter.Txt).dest)
-                }
-                is Reporter.SystemOut -> DuplicatedResourcesReporter.SystemOut
-                else -> DuplicatedResourcesReporter.None
+            get() = when (extension.report.reporter) {
+                is Reporter.Txt -> DuplicatedResourcesReporter.txt()
+                is Reporter.Html -> DuplicatedResourcesReporter.html()
+                is Reporter.SystemOut -> DuplicatedResourcesReporter.systemOut()
+                else -> DuplicatedResourcesReporter.none()
             }
     }
 }

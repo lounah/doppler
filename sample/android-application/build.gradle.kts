@@ -9,7 +9,7 @@ doppler {
         sourceSets("androidTest")
     }
     report {
-        systemOut()
+        html()
     }
 }
 
