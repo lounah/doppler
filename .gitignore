@@ -5,3 +5,4 @@
 /build-settings/dependencies/build/
 /sample/.gradle/
 /sources/.gradle/
+/local.properties
