@@ -13,3 +13,9 @@ plugins {
 
 includeBuild("../build-conventions")
 includeBuild("../sources")
+
+include("android-application")
+include("android-library-1")
+include("android-library-2")
+include("android-library-3")
+include("android-library-4")

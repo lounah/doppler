@@ -1,4 +1,3 @@
-import me.lounah.doppler.build.util.withVersionCatalog
 import org.gradle.kotlin.dsl.dependencies
 import org.jetbrains.kotlin.gradle.plugin.KotlinBasePluginWrapper
 

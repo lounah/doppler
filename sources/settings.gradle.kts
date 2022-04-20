@@ -14,3 +14,5 @@ plugins {
 }
 
 includeBuild("../build-conventions")
+
+include("doppler-plugin")
