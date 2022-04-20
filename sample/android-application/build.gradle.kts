@@ -1,6 +1,6 @@
 plugins {
     id("convention.android-application")
-    id("me.lounah.duplicated-resources-finder")
+    id("me.lounah.doppler")
 }
 
 doppler {
