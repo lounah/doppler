@@ -18,6 +18,7 @@ public interface DuplicatedResourcesFinder {
 
         override fun find(project: Project): DuplicatedResources {
             return buildDependenciesGraph(project)
+                .asSequence()
                 .filter(::isResourceCheckEnabled)
                 .flatMap(resourcesExtractor::extract)
                 .groupBy(AndroidResource::name)
@@ -26,6 +27,7 @@ public interface DuplicatedResourcesFinder {
                         .filter { resource -> resource.sourceSet !in excludedSourceSets }
                 }
                 .filter { (name, resources) -> name !in excludedResources && resources.size > 1 }
+                .toMap()
         }
 
         private fun isResourceCheckEnabled(project: Project): Boolean {
